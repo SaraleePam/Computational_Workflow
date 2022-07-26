@@ -15,8 +15,6 @@ const contact = {
 }
 
 
-
-
 const addNewContact = (e) => {
     e.preventDefault();  
 
@@ -38,15 +36,15 @@ const addNewContact = (e) => {
     console.log(contact)
 
     //localStorage.setItem("contact", JSON.stringify(contact));
-    //bubbleGrp.textContent.contact.contactList.contactObject.values(name)[0]
-    //bubbleGrp.textContent.contact.contactList.contactObject.values(email)[0]
-    //bubbleGrp.textContent.contact.contactList.contactObject.values(message)[0]
+    //bubbleGrp.textContent.contact.contactList.contactList[0].message
+    //bubbleGrp.textContent.contact.contactList.contactList[0].name
+    //bubbleGrp.textContent.contact.contactList.contactList[0].email
 
 /*
     function createNewBubble() {
       const newBubble = document.createElement('bubble');
       newBubble.classList.add('flat');
-      newBubble.innerText = bubble.textContent.contact.contactList.contactObject.values(message)[0] ;
+      newBubble.innerText = bubble.textContent.contact.contactList[0].message ;
       bubbleGrp.appendChild(newBubble)
     }
   */
