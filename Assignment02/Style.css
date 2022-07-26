@@ -9,6 +9,8 @@
 
 body {
   padding: 40px;
+  background-image: url("");
+  background-color: #202020;
 }
 
 h2 {
@@ -48,7 +50,7 @@ form {
   margin-left: 10px;
 }
 
-input[type="name"],
+input[type="text"],
 input[type="message"],
 input[type="email"] {
   width: 100%;
