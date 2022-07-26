@@ -15,8 +15,6 @@ const contact = {
 }
 
 
-
-
 const addNewContact = (e) => {
     e.preventDefault();  
 
@@ -42,23 +40,22 @@ const addNewContact = (e) => {
     //bubbleGrp.textContent.contact.contactList.contactObject.values(email)[0]
     //bubbleGrp.textContent.contact.contactList.contactObject.values(message)[0]
 
-/*
+
     function createNewBubble() {
       const newBubble = document.createElement('bubble');
       newBubble.classList.add('flat');
       newBubble.innerText = bubble.textContent.contact.contactList.contactObject.values(message)[0] ;
       bubbleGrp.appendChild(newBubble)
-    }
-  */
+      }
 
-    //form.reset();
 
-form.addEventListener('submit', addNewContact)
+    form.reset();
 
 }
 
 
 
+form.addEventListener('submit', addNewContact)
 
 
 ///////////////
