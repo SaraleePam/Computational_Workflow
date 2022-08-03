@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css?family=Merriweather|Open+Sans&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Merriweather', serif;
+}
+
+body {
+  padding: 40px;
+  background-image: url("");
+  background-color: #6586be;
+}
+
+h2 {
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: auto;
+  background: rgb(239, 239, 239);
+  padding: 20px 0;
+  color: rgb(158, 158, 158);
+}
+
+.container {
+  margin: 20px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.left {
+  float: left;
+  width: 50%;
+  padding-bottom: 20px; */
+}
+
+.right {
+  float: right;
+  width: 50%;
+  padding-bottom: 20px; */
+}
+
+.center {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+input[type="text"],
+input[type="message"],
+input[type="email"] {
+  width: 100%;
+  border: none;
+  line-height: 30px;
+  margin: 5px 0;
+  border-radius: 4px;
+  padding-left: 15px;
+}
+
+textarea {
+  padding: 15px;
+  width: 100%;
+  border: none;
+  border-radius: 4px;
+}
+
+button {
+  color: #FFF;
+  background: rgb(103, 103, 115);
+  border: none;
+  margin: 10px 10px;
+  line-height: 30px;
+  border-radius: 4px;
+}
+
+@media screen and (max-width: 600px) {
+  .container { 
+    flex-direction: column; 
+  }
+}
+
+
+.bubble {
+
+  color: #FFF;
+  background: rgb(168, 168, 182);
+  border: none;
+  line-height: 30px;
+  border-radius: 10px;
+  text-indent: 5%;
+
+}
