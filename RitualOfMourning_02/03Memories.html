@@ -6,36 +6,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Memories Collector</title>
     <link rel="StyleSheet" href="Style.css" />
-    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    
+    
+
   </head>
 
   <body>
     <h2>Memories</h2>
 
-    <button id="submit-button">Click to submit</button>
 
-    <form class="bottom">
+<div class="bottom">
+    <form>
       <textarea placeholder="Write something here"></textarea>
       <input type="text" class="tweet" placeholder="name" />
-      <button class="btnfull">Submit tweet</button>
-      <button class="btnsymbol">+</button>
+      <button class="btnfull" id="submit-button">Submit tweet</button>
+      <input type='file' />
       <a href="04Goodbye.html"> Next Page </a>
     </form>
+</div>
 
-    <div><span class="tweet_count"></span> character left</div>
 
-    <div class="test-floating" id="test-float" style="top: 100px; left: 200px">
-      <div class="test-floating-img">testtttt</div>
-      <div class="test-floating-text disabled">text inside</div>
+<!-- container for display-->
+
+    <div class="bubbleContainer">
+        <div class='shape a'></div>
+        <div class='shape b'></div>
+        <div class='shape c'></div>
     </div>
+    
 
-    <!-- container for display-->
 
-    <ul></ul>
+<!-- container for display-->
     <script src="firebase-initialize.js"></script>
     <script src="Comment.js"></script>
-    <script src="tinting.js"></script>
-    <script src="test.js"></script>
+    <script src="Animate.js"></script>
   </body>
 </html>

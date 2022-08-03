@@ -28,12 +28,15 @@
 }
 
 body {
-  padding: aut;
+
   background-image: url("");
   background-color: #262626;
-  position: relative;
+  margin-top: 10px;
+  font-family: 'Avenir', sans-serif; 
+  color: #999999;
 
 }
+
 
 
 
@@ -42,16 +45,6 @@ h2 {
   text-align: center;
 }
 
-
-.bottom{
-  position:fixed;
-  bottom:0px;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-}
 
 
 
@@ -92,6 +85,19 @@ form {
   padding-bottom: 20px; */
 }
 
+.bottom {
+  border:#73AD21;
+  position: fixed;
+  text-align: center;
+  align-content: center;
+  align-items: center;
+  padding: 10px;
+  bottom: 0;
+  width: 100%;
+  
+}
+
+
 
 iframe.center {
     margin: 0;
@@ -103,15 +109,12 @@ iframe.center {
     transform: translate(-50%, -50%) }
 
 .center {
-  margin: 0;
-  background: rgb(113, 113, 113);
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-right: -50%;
-  padding: 15px;
-  font-family: 'Merriweather', serif;
-  font-size: : 20px;
+  position: relative;
+  margin-top: 5%;
+  margin-left: auto;
+  margin-right: auto;
+  border: 3px solid #73AD21;
+  text-align: center;
 }
 
 input[type="text"],
@@ -134,17 +137,14 @@ textarea {
 
 }
 
+img {
+  padding: 10 px;
+  width: 200px;
+  height: 300px;
+  object-fit: cover;
 
-
-botton{
-  color: #FFF;
-  background: rgb(103, 103, 115);
-  border: none;
-  width: 30%;
-  margin: auto;
-  line-height: 30px;
-  border-radius: 4px;
 }
+
 
 
 btnfull {
@@ -165,7 +165,6 @@ btnsymbol {
   margin: auto;
   line-height: 30px;
   border-radius: 4px;
-
 }
 
 @media screen and (max-width: 600px) {
@@ -174,14 +173,40 @@ btnsymbol {
   }
 }
 
+a {
+  color: #ffffff;
+}
 
-.bubble {
+a:link { text-decoration: none; }
+a:visited { text-decoration: none; }
+a:hover { text-decoration: none; }
+a:active { text-decoration: none; }
 
-  color: #FFF;
-  background: rgb(168, 168, 182);
-  border: none;
-  line-height: 30px;
-  border-radius: 10px;
-  text-indent: 5%;
+.bubbleContainer {
+  height: auto;
+  width: auto;
+  margin: 100px;
+  background-color: rgb(67, 67, 67);
+  position: relative;
+}
 
+.shape{
+  width: 50px;
+  height:50px;
+  position:absolute;
+  transition: all 3s linear;
+}
+
+.a {
+  background-color:rgb(198, 198, 198);
+  transform : translate(50px, 50px);
+}
+.b {
+  background-color:rgb(179, 179, 179);
+  transform : translate(50px, 0);
+
+}
+.c {
+  background-color:rgb(180, 180, 180);
+  transform : translate(50px, 100px);
 }

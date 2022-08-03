@@ -1,10 +1,8 @@
 let form =document.querySelector('form')
 let tweetinput =document.querySelector('input')
-let submitTweetButton = document.querySelector('button')
+let submitTweetButton = document.getElementById('submit-button')
 let tweetContainer = document.querySelector('ul')
-let tweetCount = document.querySelectorAll('tweet_count');
-let count = 30;
-tweetCount.innerText = count;
+let UploadPic =document.querySelector('input[type="file"]')
 
 let tweet = {
   "tweetList": [],
@@ -14,30 +12,20 @@ let tweet = {
 
 window.addEventListener('load', pageLoadFn)
 submitTweetButton.addEventListener('click',addTweet)
-tweetinput.addEventListener('keyup', updateTweetCount);
+UploadPic.addEventListener('change', Upload)
 
+function Upload() {
+      if (this.files && this.files[0]) {
+          var img = document.querySelector('img');
+          img.onload = () => {
+              URL.revokeObjectURL(img.src);  // no longer needed, free memory
+          }
+
+          img.src = URL.createObjectURL(this.files[0]); // set src to blob url
+      }
+  }
 ///////////////////////////
-
-function updateTweetCount(e) {
-  if(e.code == 'Backspace'){
-    console.log('delete key pressed', e.code)
-    count = count + 1
-    tweetCount.innerText = count
-  } else {
-    count = count - 1
-    tweetCount.innerText = count
-}
-}
-
-if (count <= 5) {
-  tweetCount.StyleSheet.color =  'red';
-  tweetCount.StyleSheet.fontwight =  'normal';
-
-}
-
 ///////////////////////////
-
-
 /////////////////////////////////
 
 function addTweet(event) {
@@ -78,11 +66,7 @@ function displayTweet(tweet) {
   let twitter_handle = '@bot'
   let newListItem = document.createElement('li')
   newListItem.textContent = `${account_name} ${twitter_handle} ${tweet.name}`
-  if(tweet.length > count){
-    console.log('more than 30 character')
-  }else{
-    tweetContainer.appendChild(newListItem);
-  }
+ 
   form.reset()
 }
 
