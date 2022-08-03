@@ -40,23 +40,22 @@ const addNewContact = (e) => {
     //bubbleGrp.textContent.contact.contactList.contactList[0].name
     //bubbleGrp.textContent.contact.contactList.contactList[0].email
 
-/*
+
     function createNewBubble() {
       const newBubble = document.createElement('bubble');
       newBubble.classList.add('flat');
       newBubble.innerText = bubble.textContent.contact.contactList[0].message ;
       bubbleGrp.appendChild(newBubble)
-    }
-  */
+      }
 
-    //form.reset();
 
-form.addEventListener('submit', addNewContact)
+    form.reset();
 
 }
 
 
 
+form.addEventListener('submit', addNewContact)
 
 
 ///////////////
