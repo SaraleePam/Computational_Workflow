@@ -3,6 +3,7 @@ let tweetinput =document.querySelector('input')
 let submitTweetButton = document.getElementById('submit-button')
 let tweetContainer = document.querySelector('ul')
 let UploadPic =document.querySelector('input[type="file"]')
+let LightGroup = document.querySelector('.LightGroup')
 
 let tweet = {
   "tweetList": [],
@@ -11,9 +12,10 @@ let tweet = {
 
 
 window.addEventListener('load', pageLoadFn)
-submitTweetButton.addEventListener('click',addTweet)
+submitTweetButton.addEventListener('click',sendLight)
 UploadPic.addEventListener('change', Upload)
 
+////////////////////////
 function Upload() {
       if (this.files && this.files[0]) {
           var img = document.querySelector('img');
@@ -28,32 +30,44 @@ function Upload() {
 ///////////////////////////
 /////////////////////////////////
 
-function addTweet(event) {
-  event.preventDefault()
-  console.log('This Works')
-  let newTweet =tweetinput.value;
-  tweetObject = {
-  name: newTweet
-  }
-  displayTweet(tweetObject)
-  tweet.tweetList.push(tweetObject)
-  // store the weet in local store
-  db.setItem('tweet', JSON.stringify(tweet))
+function sendLight(event){  
+event.preventDefault()
+createNewLight()
+addtweet()
+displayTweet()
+pageLoadFn()
+
 }
 
 
-//-------EVENT HANDLER (CALL BACK FUNCTION)
+function createNewLight() {
+  const newBtn = document.createElement('Light');
+  newBtn.innerText = tweetinput.value;
+  LightGroup.appendChild(newBtn);
+  }
 
-// setTimeout(() => {
-//   db.removeItem('tweet')
-//   console.log ('item deleted')
-// }, "1000")
+function addtweet() {
+  //event.preventDefault();
+  console.log('This Works');
+  let newTweet =tweetinput.value;
+  tweetObject = {
+  name: newTweet
+}
+console.log(tweetObject)
+
+  displayTweet(tweetObject)
+  tweet.tweetList.push(tweetObject)
+  // store the weet in local store
+  localStorage.setItem('tweet', JSON.stringify(tweet))
+}
+
+
 
 function pageLoadFn(event){
-  if (db.getItem('tweet') === null){
+  if (localStorage.getItem('tweet') === null){
   return
 }else{
-  tweet = JSON.parse(db.getItem('tweet'))
+  tweet = JSON.parse(localStorage.getItem('tweet'))
   tweet.tweetList.forEach(displayTweet)
 }
 }
@@ -62,15 +76,10 @@ function pageLoadFn(event){
 function displayTweet(tweet) {
   console.log(tweet)
   if(tweet == "") return null
-  let account_name = 'Pam'
-  let twitter_handle = '@bot'
-  let newListItem = document.createElement('li')
-  newListItem.textContent = `${account_name} ${twitter_handle} ${tweet.name}`
- 
+  tweetContainer.textContent = `${tweet.name}`
+  
   form.reset()
 }
-
-
 
 
 

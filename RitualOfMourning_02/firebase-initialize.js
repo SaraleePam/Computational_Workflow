@@ -9,13 +9,13 @@ var firebaseConfig = {
         projectId: "process-of-mourning",
         storageBucket: "process-of-mourning.appspot.com",
         messagingSenderId: "715986734523",
-        appId: "1:715986734523:web:5962341d4d13a81bf1489e"
+        appId: "1:715986734523:web:5962341d4d13a81bf1489e",
         databaseURL: "httgs://process-of-mourning.appspot.com",
 };
 
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
-const database = firebase.database();
+firebase.database();
 
 
 

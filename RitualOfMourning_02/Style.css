@@ -88,6 +88,7 @@ form {
 .bottom {
   border:#73AD21;
   position: fixed;
+  justify-content: center;
   text-align: center;
   align-content: center;
   align-items: center;
@@ -145,17 +146,17 @@ img {
 
 }
 
-
-
-btnfull {
-  color: #FFF;
-  background: rgb(103, 103, 115);
-  border: none;
-  width: 30%;
-  margin: auto;
-  line-height: 30px;
-  border-radius: 4px;
+button {
+width: 100px;
+color: #FFF;
+background: rgb(103, 103, 115);
+border: none;
+margin: 10px 10px;
+line-height: 30px;
+border-radius: 4px;
 }
+
+
 
 btnsymbol {
   color: rgb(73, 73, 73);
@@ -190,23 +191,15 @@ a:active { text-decoration: none; }
   position: relative;
 }
 
-.shape{
+.LightGroup{
+  
+  background: radial-gradient(#f1f4b9, #000000);
   width: 50px;
-  height:50px;
+  height: 50px;
+  border-radius: 50px;
   position:absolute;
   transition: all 3s linear;
-}
-
-.a {
   background-color:rgb(198, 198, 198);
   transform : translate(50px, 50px);
 }
-.b {
-  background-color:rgb(179, 179, 179);
-  transform : translate(50px, 0);
 
-}
-.c {
-  background-color:rgb(180, 180, 180);
-  transform : translate(50px, 100px);
-}

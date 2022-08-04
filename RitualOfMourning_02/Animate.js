@@ -1,15 +1,3 @@
-const submitButton = document.getElementById('submit-button');
-
-submitButton.addEventListener(
-  'click',
-  (e) => {
-    fetch('url');
-
-    console.log(e);
-    alert('test');
-  },
-  false
-);
 
 // {
 //   name: 'user',
@@ -120,9 +108,7 @@ function makeNewPosition(){
 }
 
 var animate = function() {
-  animateShape('.a');
-  animateShape('.b');
-  animateShape('.c');
+  animateShape('.LightGroup');
 };
 
 // Starts animation without having to wait for interval
@@ -145,7 +131,7 @@ function stopLoop(type) {
   clearInterval(loop);
 
   // Speed up shapes repositioning
-  $('.shape').css({
+  $('.LightGroup').css({
       'transform' : 'translate(10px, 10px)',
       'transition': 'all 0.3s linear'
   });
@@ -170,7 +156,7 @@ function stopLoop(type) {
 function restartLoop() {
 
   // Reset animation speed after repositioning
-  $('.shape').css({
+  $('.LightGroup').css({
       'transition': 'all 3s linear'
   });
 
