@@ -1,4 +1,3 @@
-
 // {
 //   name: 'user',
 //   text: 'memory'
@@ -17,7 +16,6 @@
 //     });
 //   });
 
-
 // // CSS Selector
 // const testFloat = document.getElementById('test-float');
 // testFloat.addEventListener('click', (e) => {
@@ -28,7 +26,6 @@
 //     textInside[0].classList.add('disabled');
 //   }
 // });
-
 
 // let countId = 0;
 // setInterval(() => {
@@ -46,7 +43,7 @@
 //   const currLeftInt = parseInt(currLeft);
 //   const newLeft = `${currLeftInt + diff}px`;
 //   testFloat.style.left = newLeft;
-  
+
 //   if (countId > 20) {
 //     countId = 0;
 //   } else {
@@ -54,12 +51,6 @@
 
 //   }
 // }, 50);
-
-
-
-
-
-
 
 ////////////////////////
 
@@ -87,86 +78,96 @@
 //     // create a random speed for the dude between 2 - 4
 //     dude.speed = 2 + Math.random() * 2;
 
-
 //////////////////////////
 
-
-
-function makeNewPosition(){
-
+function makeNewPosition() {
   // Taking in account shape size to avoid glitch
-  var shapeHeight = $('.bubbleContainer').height() - 50;
-  var shapeWidth = $('.bubbleContainer').width() - 50;
+  var shapeHeight = $('.bubbleContainer').height() - 30;
+  var shapeWidth = $('.bubbleContainer').width() - 30;
 
   var nh = Math.floor(Math.random() * shapeHeight);
   var nw = Math.floor(Math.random() * shapeWidth);
 
   //console.log(nh,nw);
 
-  return [nh,nw];
-
+  return [nh, nw];
 }
 
-var animate = function() {
-  animateShape('.fly');
+// var animate = function () {
+//   animateShape('.fly');
+// };
+
+var animateRandom = function () {
+  const elems = document.getElementsByClassName('fly');
+  for (let i = 0; i < elems.length; i++) {
+    const elem = elems[i];
+    var newq = makeNewPosition();
+    elem.style.transform = `translate(${newq[1]}px, ${newq[0]}px)`;
+  }
+};
+
+var animateRandom2 = function () {
+  const elems = document.getElementsByClassName('fly');
+  for (let i = 0; i < elems.length; i++) {
+    const elem = elems[i];
+    if (elem.classList.contains('animate-pos')) {
+      elem.classList.add('animate-neg');
+      elem.classList.remove('animate-pos');
+    } else {
+      elem.classList.add('animate-pos');
+      elem.classList.remove('animate-neg');
+    }
+  }
 };
 
 // Starts animation without having to wait for interval
-animate();
+animateRandom2();
 
 // Set loop with interval
-loop = window.setInterval(animate, 500);
+loop = window.setInterval(animateRandom2, 800);
 
-function animateShape(shapeClass){
+// function animateShape(shapeClass) {
+//   var newq = makeNewPosition();
 
-  var newq = makeNewPosition();
+//   $(shapeClass).css({ transform: 'translate(' + newq[1] + 'px, ' + newq[0] + 'px)' });
+// }
 
-  $(shapeClass).css({'transform' : 'translate(' + newq[1] +'px, ' + newq[0] + 'px)'});
+// function stopLoop(type) {
+//   // Breaks the loop
+//   clearInterval(loop);
 
-}
+//   // Speed up shapes repositioning
+//   $('.fly').css({
+//     transform: 'translate(10px, 10px)',
+//     transition: 'all 0.3s ease-in',
+//   });
 
-function stopLoop(type) {
+//   if (type == 'vertical') {
+//     // Moves the three shapes in predetermined positions
+//     $('.a').css({ transform: 'translate(50px, 0)' });
+//     $('.b').css({ transform: 'translate(50px, 50px)' });
+//     $('.c').css({ transform: 'translate(50px, 100px)' });
+//     $('.d').css({ transform: 'translate(50px, 150px)' });
+//   }
 
-  // Breaks the loop
-  clearInterval(loop);
-
-  // Speed up shapes repositioning
-  $('.fly').css({
-      'transform' : 'translate(10px, 10px)',
-      'transition': 'all 0.3s linear'
-  });
-
-  if (type == 'vertical') {
-    // Moves the three shapes in predetermined positions
-    $('.a').css({'transform' : 'translate(50px, 0)'});
-    $('.b').css({'transform' : 'translate(50px, 50px)'});
-    $('.c').css({'transform' : 'translate(50px, 100px)'});
-    $('.d').css({'transform' : 'translate(50px, 150px)'});
-}
-
-if (type == 'horizontal') {
-    // Moves the three shapes in predetermined positions
-    $('.a').css({'transform' : 'translate(0, 50px)'});
-    $('.b').css({'transform' : 'translate(50px, 50px)'});
-    $('.c').css({'transform' : 'translate(100px, 50px)'});
-    $('.d').css({'transform' : 'translate(150px, 50px)'});
-}
-
-
-}
+//   if (type == 'horizontal') {
+//     // Moves the three shapes in predetermined positions
+//     $('.a').css({ transform: 'translate(0, 50px)' });
+//     $('.b').css({ transform: 'translate(50px, 50px)' });
+//     $('.c').css({ transform: 'translate(100px, 50px)' });
+//     $('.d').css({ transform: 'translate(150px, 50px)' });
+//   }
+// }
 
 function restartLoop() {
-
   // Reset animation speed after repositioning
   $('.fly').css({
-      'transition': 'all 3s linear'
+    transition: 'all 3s linear',
   });
 
   // Restarts animation without waiting
   animate();
 
   // Restarts loop on same instance
-  loop = window.setInterval(animate, 500);
-
+  loop = window.setInterval(animate, 900);
 }
-

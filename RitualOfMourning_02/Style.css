@@ -1,52 +1,24 @@
 @import url('https://fonts.googleapis.com/css?family=Merriweather|Open+Sans&display=swap');
 
 
-.test-floating {
-  background-color: blue;
-  position: fixed;
-}
-
-.test-floating-img{
-  font-size: 48px;
-  color: red;
-}
-
-.test-floating-text {
-  color: green;
-  font-weight: 700
-}
-
-.test-floating-text.disabled{
-  display: none
-}
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-
 }
 
 body {
-
-  background-image: url("");
-  background-color: #262626;
+  background-image: url('');
+  background-color: #000000;
   margin-top: 10px;
-  font-family: 'Avenir', sans-serif; 
+  font-family: 'Avenir', sans-serif;
   color: #999999;
-
 }
-
-
-
 
 h2 {
   color: #ffffff;
   text-align: center;
 }
-
-
-
 
 form {
   display: flex;
@@ -60,12 +32,7 @@ form {
   color: rgb(158, 158, 158);
   align-items: center;
   justify-content: center;
-
-  
-
 }
-
-
 
 .container {
   margin: 20px;
@@ -76,17 +43,17 @@ form {
 .left {
   float: left;
   width: 50%;
-  padding-bottom: 20px; */
+  padding-bottom: 20px;
 }
 
 .right {
   float: right;
   width: 50%;
-  padding-bottom: 20px; */
+  padding-bottom: 20px;
 }
 
 .bottom {
-  border:#73AD21;
+  border: #73ad21;
   position: fixed;
   justify-content: center;
   text-align: center;
@@ -95,40 +62,38 @@ form {
   padding: 10px;
   bottom: 0;
   width: 100%;
-  
 }
 
-
-
 iframe.center {
-    margin: 0;
-    background: black;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-right: -50%;
-    transform: translate(-50%, -50%) }
+  margin: 0;
+  background: black;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}
 
 .center {
   position: relative;
   margin-top: 5%;
   margin-left: auto;
   margin-right: auto;
-  border: 3px solid #73AD21;
+  border: none;
   text-align: center;
 }
 
-input[type="text"],
-input[type="message"],
-input[type="email"] {
+input[type='text'],
+input[type='message'],
+input[type='email'] {
   width: 100%;
   line-height: 60px;
   margin: 10px;
   border-radius: 48px;
   padding-left: 50px;
   padding-right: 15px;
-    border:0 none !important;
-    outline:0 !important;
+  border: 0 none !important;
+  outline: 0 !important;
 }
 
 textarea {
@@ -136,7 +101,6 @@ textarea {
   width: 100%;
   border: none;
   border-radius: 4px;
-
 }
 
 img {
@@ -144,20 +108,17 @@ img {
   width: 200px;
   height: 300px;
   object-fit: cover;
-
 }
 
 button {
-width: 100px;
-color: #FFF;
-background: rgb(103, 103, 115);
-border: none;
-margin: 10px 10px;
-line-height: 30px;
-border-radius: 4px;
+  width: 100px;
+  color: #fff;
+  background: rgb(103, 103, 115);
+  border: none;
+  margin: 10px 10px;
+  line-height: 30px;
+  border-radius: 4px;
 }
-
-
 
 btnsymbol {
   color: rgb(73, 73, 73);
@@ -170,8 +131,8 @@ btnsymbol {
 }
 
 @media screen and (max-width: 600px) {
-  .container { 
-    flex-direction: column; 
+  .container {
+    flex-direction: column;
   }
 }
 
@@ -179,34 +140,73 @@ a {
   color: #ffffff;
 }
 
-a:link { text-decoration: none; }
-a:visited { text-decoration: none; }
-a:hover { text-decoration: none; }
-a:active { text-decoration: none; }
+a:link {
+  text-decoration: none;
+}
+a:visited {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+}
+a:active {
+  text-decoration: none;
+}
 
 .bubbleContainer {
-  height: auto;
+  height: 400px;
   width: auto;
   margin: 100px;
-  background-color: rgb(67, 67, 67);
+  background-color: rgb(0, 0, 0);
   position: relative;
 }
 
-.LightGroup{
-  
+.LightGroup {
   background: radial-gradient(#f1f4b9, #000000);
   width: 50px;
   height: 50px;
   border-radius: 50px;
-  position:absolute;
-  transition: all 3s linear;
-  background-color:rgb(198, 198, 198);
-  transform : translate(50px, 50px);
+  position: absolute;
+  transition: all 0.3s linear;
+  background-color: rgb(198, 198, 198);
+  /* transform: translate(50px, 50px); */
 }
 
 .fly {
   height: 50px;
   width: 50px;
   margin: 10px 5px 0 0;
+}
+
+.lightGroupInnerPanel {
+  background: rgb(255, 255, 255);
+  opacity: 50%;
+  padding: 24px;
+  width: 70px;
+  
+}
+
+.lightGroupInnerPanel.disabled {
+  display: none;
+}
+
+.animate-vertical-1 {
+  transition: all 1.5s ease-in-out;
+}
+.animate-vertical-1.animate-pos {
+  transform: translateY(10px);
+}
+.animate-vertical-1.animate-neg {
+  transform: translateY(-10px);
+}
+
+.animate-vertical-2 {
+  transition: all 1.5s ease-in-out;
+}
+.animate-vertical-2.animate-pos {
+  transform: translateY(20px);
+}
+.animate-vertical-2.animate-neg {
+  transform: translateY(-20px);
 }
 
