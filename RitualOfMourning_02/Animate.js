@@ -108,7 +108,7 @@ function makeNewPosition(){
 }
 
 var animate = function() {
-  animateShape('.LightGroup');
+  animateShape('.fly');
 };
 
 // Starts animation without having to wait for interval
@@ -131,24 +131,26 @@ function stopLoop(type) {
   clearInterval(loop);
 
   // Speed up shapes repositioning
-  $('.LightGroup').css({
+  $('.fly').css({
       'transform' : 'translate(10px, 10px)',
       'transition': 'all 0.3s linear'
   });
 
   if (type == 'vertical') {
-      // Moves the three shapes in predetermined positions
-      $('.a').css({'transform' : 'translate(50px, 0)'});
-      $('.b').css({'transform' : 'translate(50px, 0)'});
-      $('.c').css({'transform' : 'translate(50px, 0)'});
-  }
+    // Moves the three shapes in predetermined positions
+    $('.a').css({'transform' : 'translate(50px, 0)'});
+    $('.b').css({'transform' : 'translate(50px, 50px)'});
+    $('.c').css({'transform' : 'translate(50px, 100px)'});
+    $('.d').css({'transform' : 'translate(50px, 150px)'});
+}
 
-  if (type == 'horizontal') {
-      // Moves the three shapes in predetermined positions
-      $('.a').css({'transform' : 'translate(0, 50px)'});
-      $('.b').css({'transform' : 'translate(0, 50px)'});
-      $('.c').css({'transform' : 'translate(0, 50px)'});
-  }
+if (type == 'horizontal') {
+    // Moves the three shapes in predetermined positions
+    $('.a').css({'transform' : 'translate(0, 50px)'});
+    $('.b').css({'transform' : 'translate(50px, 50px)'});
+    $('.c').css({'transform' : 'translate(100px, 50px)'});
+    $('.d').css({'transform' : 'translate(150px, 50px)'});
+}
 
 
 }
@@ -156,7 +158,7 @@ function stopLoop(type) {
 function restartLoop() {
 
   // Reset animation speed after repositioning
-  $('.LightGroup').css({
+  $('.fly').css({
       'transition': 'all 3s linear'
   });
 
@@ -167,3 +169,4 @@ function restartLoop() {
   loop = window.setInterval(animate, 500);
 
 }
+

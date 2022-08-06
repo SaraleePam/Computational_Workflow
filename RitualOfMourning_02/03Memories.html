@@ -6,11 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Memories Collector</title>
     <link rel="StyleSheet" href="Style.css" />
-    <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
-    <script type="module" src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-    <script type="module" src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
-    
-    
+
 
   </head>
 
@@ -19,8 +15,8 @@
 
 <div class="bottom">
     <form>
-      <textarea placeholder="Write something here"></textarea>
-      <input type="text" class="tweet" placeholder="name" />
+      <input type="text" id="Note" name="User_Name" placeholder="Write your memory" />
+      <input type="text" id="Username" name="User_Note" placeholder="name" />
       <button class="btnfull" id="submit-button">Send</button>
       <input type='file'/>
       <a href="04Goodbye.html"> Next Page </a>
@@ -31,14 +27,21 @@
 <!-- container for display-->
 
     <div class="bubbleContainer">
-      <div class="LightGroup"><ul></ul></div>
+      <div class="fly LightGroup"></div>
+     
     </div>
-    
+    <img id="myImg" class="fly btnimage" src="#" >
 
 
 <!-- container for display-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
     <script src="firebase-initialize.js"></script>
     <script src="Comment.js"></script>
     <script src="Animate.js"></script>
+    
   </body>
 </html>

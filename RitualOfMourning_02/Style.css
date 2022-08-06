@@ -122,12 +122,13 @@ input[type="text"],
 input[type="message"],
 input[type="email"] {
   width: 100%;
-  border: none;
   line-height: 60px;
   margin: 10px;
   border-radius: 48px;
   padding-left: 50px;
   padding-right: 15px;
+    border:0 none !important;
+    outline:0 !important;
 }
 
 textarea {
@@ -201,5 +202,11 @@ a:active { text-decoration: none; }
   transition: all 3s linear;
   background-color:rgb(198, 198, 198);
   transform : translate(50px, 50px);
+}
+
+.fly {
+  height: 50px;
+  width: 50px;
+  margin: 10px 5px 0 0;
 }
 

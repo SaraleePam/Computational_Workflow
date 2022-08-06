@@ -1,15 +1,13 @@
 let form =document.querySelector('form')
-let tweetinput =document.querySelector('input')
+let tweetinput =document.getElementById('Username')
 let submitTweetButton = document.getElementById('submit-button')
 let tweetContainer = document.querySelector('ul')
 let UploadPic =document.querySelector('input[type="file"]')
 let LightGroup = document.querySelector('.LightGroup')
+let Light = document.querySelector('.Light')
+let bubbleContainer = document.querySelector('.bubbleContainer')
 
-let tweet = {
-  "tweetList": [],
-  'userList' : [],
-}
-
+//////////////////////////
 
 window.addEventListener('load', pageLoadFn)
 submitTweetButton.addEventListener('click',sendLight)
@@ -28,26 +26,44 @@ function Upload() {
   }
 ///////////////////////////
 ///////////////////////////
-/////////////////////////////////
+
+///////////////////////////
 
 function sendLight(event){  
 event.preventDefault()
 createNewLight()
 addtweet()
-displayTweet()
-pageLoadFn()
-
 }
 
+////////////////////////////
+
+
+const alphabet = "abcdefghijklmnopqrstuvwxyz"
+const randomCharacter = alphabet[Math.floor(Math.random() * alphabet.length)]
+
+
+////////////////////////////
 
 function createNewLight() {
-  const newBtn = document.createElement('Light');
-  newBtn.innerText = tweetinput.value;
-  LightGroup.appendChild(newBtn);
+  const newLight = document.createElement('div');
+  newLight.innerText = tweetinput.value;
+  newLight.classList.add('LightGroup');
+  newLight.classList.add('randomCharacter');
+  newLight.classList.add('fly');
+  bubbleContainer.appendChild(newLight);
   }
 
-function addtweet() {
-  //event.preventDefault();
+
+///////////////////////////
+
+function addtweet(e) {
+
+  let tweet = {
+    "Username": [],
+    'Note' : [],
+  }
+  
+  e.preventDefault();
   console.log('This Works');
   let newTweet =tweetinput.value;
   tweetObject = {
@@ -56,30 +72,38 @@ function addtweet() {
 console.log(tweetObject)
 
   displayTweet(tweetObject)
-  tweet.tweetList.push(tweetObject)
+  tweet.Username.push(tweetObject)
   // store the weet in local store
   localStorage.setItem('tweet', JSON.stringify(tweet))
 }
 
-
-
-function pageLoadFn(event){
-  if (localStorage.getItem('tweet') === null){
-  return
-}else{
-  tweet = JSON.parse(localStorage.getItem('tweet'))
-  tweet.tweetList.forEach(displayTweet)
-}
-}
+//////////////////////////////
 
 
 function displayTweet(tweet) {
   console.log(tweet)
-  if(tweet == "") return null
-  tweetContainer.textContent = `${tweet.name}`
-  
-  form.reset()
+  if(tweet == "") return null;
+  let newListItem = document.createElement('li');
+  newListItem.textContent = ` ${tweet.Username}`;
+  tweetContainer.appendChild(newListItem);
+  form.reset();
 }
+
+
+
+//////////////////////////////
+
+function pageLoadFn(){
+  if (localStorage.getItem('tweet') === null){
+  return null
+}else{
+  tweet = JSON.parse(localStorage.getItem('tweet'));
+  tweet.Username.forEach(displayTweet);
+}
+}
+
+/////////////////////////////////
+
 
 
 
