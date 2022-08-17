@@ -1,29 +1,47 @@
 let form = document.querySelector('form');
-let tweetinput = document.getElementById('Username');
+let tweetinput_name = document.getElementById('Username');
+let tweetinput_note = document.getElementById('Note');
 let submitTweetButton = document.getElementById('submit-button');
 let tweetContainer = document.querySelector('ul');
-let UploadPic = document.querySelector('input[type="file"]');
+// let UploadPic = document.querySelector('input[type="file"]');
 let LightGroup = document.querySelector('.LightGroup');
 let Light = document.querySelector('.Light');
 let bubbleContainer = document.querySelector('.bubbleContainer');
 
+let lights = {
+  "lightList": []
+};
+
 //////////////////////////
 
 window.addEventListener('load', pageLoadFn);
-submitTweetButton.addEventListener('click', sendLight);
-UploadPic.addEventListener('change', Upload);
+submitTweetButton.addEventListener('click', addLight);
+// UploadPic.addEventListener('change', Upload);
 
-////////////////////////
-function Upload() {
-  if (this.files && this.files[0]) {
-    var img = document.querySelector('img');
-    img.onload = () => {
-      URL.revokeObjectURL(img.src); // no longer needed, free memory
-    };
 
-    img.src = URL.createObjectURL(this.files[0]); // set src to blob url
+function pageLoadFn(event) {
+  console.log(event)
+  if(localStorage.getItem('lights') === null){
+    return
+  } else {
+
+    lights = JSON.parse(localStorage.getItem('lights'));
+    console.log(lights)
+    lights.lightList.forEach(displayLight); 
   }
 }
+
+////////////////////////
+// function Upload() {
+//   if (this.files && this.files[0]) {
+//     var img = document.querySelector('img');
+//     img.onload = () => {
+//       URL.revokeObjectURL(img.src); // no longer needed, free memory
+//     };
+
+//     img.src = URL.createObjectURL(this.files[0]); // set src to blob url
+//   }
+// }
 ///////////////////////////
 ///////////////////////////
 
@@ -31,8 +49,8 @@ function Upload() {
 
 function sendLight(event) {
   event.preventDefault();
-  createNewLight();
-  addtweet();
+  displayLight();
+  addLight();
 }
 
 ////////////////////////////
@@ -72,9 +90,10 @@ function getInitialPosition() {
   return [nh, nw];
 }
 
-function createNewLight() {
+function displayLight(light) {
+  console.log(light)
   const newLight = document.createElement('div');
-  newLight.innerText = tweetinput.value;
+  newLight.innerText = `${light.name}`;
   newLight.classList.add('LightGroup');
   newLight.classList.add(ramdomCharacter());
   newLight.classList.add('fly');
@@ -90,7 +109,7 @@ function createNewLight() {
 
   // Set toggle inner panel
   const newLightPanel = document.createElement('div');
-  newLightPanel.innerText = `${tweet.Username}`;
+  newLightPanel.innerText = `${light.note}`;
   newLightPanel.classList.add('lightGroupInnerPanel');
   newLightPanel.classList.add('disabled');
 
@@ -105,53 +124,44 @@ function createNewLight() {
       innerPanel[0].classList.add('disabled');
     }
   });
+  form.reset();
 }
 
 ///////////////////////////
 
-function addtweet(e) {
-  let tweet = {
-    Username: [],
-    Note: [],
-  };
-
+function addLight(e) {
   e.preventDefault();
-  console.log('This Works');
-  let newTweet = tweetinput.value;
-  tweetObject = {
-    name: newTweet,
+//   console.log('This Works');
+  let newName = tweetinput_name.value;
+  let newNote = tweetinput_note.value;
+
+  console.log(newName, newNote)
+
+  lightObject = {
+    name: newName,
+    note: newNote
   };
-  console.log(tweetObject);
 
-  displayTweet(tweetObject);
-  tweet.push(tweetObject);
-  // store the weet in local store
-  localStorage.setItem('tweet', JSON.stringify(tweet));
+  displayLight(lightObject)
+  console.log(lights);
+  lights.lightList.push(lightObject);
+//   // store the weet in local store
+  localStorage.setItem('lights', JSON.stringify(lights));
 }
 
 //////////////////////////////
 
-function displayTweet(tweet) {
-  console.log(tweet);
-  if (tweet == '') return null;
-  let newListItem = document.createElement('li');
-  newListItem.textContent = ` ${tweet.Username}`;
-  tweetContainer.appendChild(newListItem);
-  form.reset();
-}
+// function displayTweet(tweet) {
+//   console.log(tweet);
+//   if (tweet == '') return null;
+//   let newListItem = document.createElement('li');
+//   newListItem.textContent = ` ${tweet.Username}`;
+//   tweetContainer.appendChild(newListItem);
+//   form.reset();
+// }
 
 //////////////////////////////
 
-function pageLoadFn() {
-  if (localStorage.getItem('tweet') === null) {
-    return null;
-  } else {
-    tweet = JSON.parse(localStorage.getItem('tweet'));
-    tweet.Username.forEach(createNewLight);
-    
-  }
-}
-
-/////////////////////////////////
 
 
+///////////////////////////////

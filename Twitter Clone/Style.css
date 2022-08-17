@@ -75,6 +75,7 @@ button {
   margin: 10px 10px;
   line-height: 30px;
   border-radius: 4px;
+  filter: ;
 }
 
 @media screen and (max-width: 600px) {

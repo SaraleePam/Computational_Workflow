@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Memories Collector</title>
     <link rel="StyleSheet" href="Style.css" />
-
+    <link rel="StyleSheet" href="Transition.css">  
 
   </head>
 
@@ -22,13 +22,14 @@
 
 
 <div class="bottom">
-    <form>
+    <form autocomplete="off" >
       <input type="text" id="Note" name="User_Name" placeholder="We are missing her, let share the memories together" />
       <input type="text" id="Username" name="User_Note" placeholder="name" />
       <button class="btnfull" id="submit-button">Add Memory</button>
-      <input type='file'/>
-      <a href="04Goodbye.html"> Next Page </a>
+      <br>
+      <a href="04Donation.html"> Next Page </a>
     </form>
+    
 </div>
 
 
@@ -36,11 +37,6 @@
 
 <!-- container for display-->
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
-    <script type="module" src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-    <script type="module" src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
-    <script type="module" src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
-    <script type="module" src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
-    <script src="firebase-initialize.js"></script>
     <script src="Comment.js"></script>
     <script src="Animate.js"></script>
     

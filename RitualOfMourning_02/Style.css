@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Merriweather|Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+
 
 
 * {
@@ -9,11 +10,13 @@
 
 body {
   background-image: url('');
-  background-color: #000000;
+  background-color: #ffffff;
   margin-top: 10px;
-  font-family: 'Avenir', sans-serif;
-  color: #999999;
+  font-family: 'Poppins-light', sans-serif;
+  color: #8e0a66;
+
 }
+
 
 h2 {
   color: #ffffff;
@@ -26,12 +29,16 @@ form {
   width: 80%;
   margin-left: 10%;
   margin-right: 10%;
-  padding: 10%;
-  background: rgb(239, 239, 239);
+  margin-bottom: 10px;
+  padding: 5%;
+  background: rgb(255, 255, 255);
   padding: 20px 20px;
   color: rgb(158, 158, 158);
   align-items: center;
   justify-content: center;
+  border-radius: 48px;
+  border: #8e0a66;
+
 }
 
 .container {
@@ -53,7 +60,7 @@ form {
 }
 
 .bottom {
-  border: #73ad21;
+  border: none;
   position: fixed;
   justify-content: center;
   text-align: center;
@@ -62,15 +69,29 @@ form {
   padding: 10px;
   bottom: 0;
   width: 100%;
+  opacity: 0.8;
+  display: inline;
 }
 
 iframe.center {
   margin: 0;
-  background: black;
+  background: rgb(255, 255, 255);
   position: absolute;
   top: 50%;
   left: 50%;
   margin-right: -50%;
+  transform: translate(-50%, -50%);
+  
+}
+
+
+iframe.left {
+  margin: 0;
+  background: rgb(255, 255, 255);
+  position: absolute;
+  top: 50%;
+  left: 25%;
+  
   transform: translate(-50%, -50%);
 }
 
@@ -79,8 +100,11 @@ iframe.center {
   margin-top: 5%;
   margin-left: auto;
   margin-right: auto;
-  border: none;
+  border: 5px;
+  border-color: #ad2a95;
   text-align: center;
+  color: #8e0a66;
+  
 }
 
 input[type='text'],
@@ -90,10 +114,14 @@ input[type='email'] {
   line-height: 60px;
   margin: 10px;
   border-radius: 48px;
-  padding-left: 50px;
-  padding-right: 15px;
+
   border: 0 none !important;
   outline: 0 !important;
+  text-align: center;
+}
+
+input: :hover {
+  border: #8e0a66;
 }
 
 textarea {
@@ -105,20 +133,25 @@ textarea {
 
 img {
   padding: 10 px;
-  width: 200px;
-  height: 300px;
+  width: 300px;
+  height: 400px;
   object-fit: cover;
 }
 
 button {
-  width: 100px;
-  color: #fff;
-  background: rgb(103, 103, 115);
+  width: 50%;
+  height: 40px;
+  border-radius: 100px;
+  border-color: #8e0a66;
+  color: white;
+  background:  rgb(209, 31, 197);
   border: none;
-  margin: 10px 10px;
-  line-height: 30px;
+  filter: blur(5);
   border-radius: 4px;
+  
 }
+
+
 
 btnsymbol {
   color: rgb(73, 73, 73);
@@ -137,7 +170,8 @@ btnsymbol {
 }
 
 a {
-  color: #ffffff;
+  color: #ad2a95;
+  font-size: small;
 }
 
 a:link {
@@ -147,22 +181,22 @@ a:visited {
   text-decoration: none;
 }
 a:hover {
-  text-decoration: none;
+  color: blueviolet;
 }
 a:active {
   text-decoration: none;
 }
 
 .bubbleContainer {
-  height: 400px;
+  height: 450px;
   width: auto;
-  margin: 100px;
-  background-color: rgb(0, 0, 0);
+  background-color: rgb(255, 255, 255);
   position: relative;
 }
 
 .LightGroup {
-  background: radial-gradient(#f1f4b9, #000000);
+  background: radial-gradient(#ff00f2, #ffffff);
+  opacity: 0.8;
   width: 50px;
   height: 50px;
   border-radius: 50px;
@@ -179,12 +213,16 @@ a:active {
 }
 
 .lightGroupInnerPanel {
-  background: rgb(255, 255, 255);
+  background: rgb(186, 186, 186);
   opacity: 50%;
-  padding: 24px;
-  width: 70px;
+  padding: 10px;
+  width: 350px;
+  height: 150px;
+  border-radius: 10px;
+
   
 }
+
 
 .lightGroupInnerPanel.disabled {
   display: none;
